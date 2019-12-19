@@ -7,13 +7,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: []
-    };
-  }
-
   // componentDidMount() {
   //   Tabletop.init({
   //     key: "1YJHZdoPdEIUE46BSdAGz8BCE10-VMasHI3y4dT3CXp0",
@@ -34,43 +27,37 @@ class App extends Component {
           <h1 className="App-title">React + Google Sheets Demo</h1>
         </header>
         <div id="employee-details">
-          {console.log("STATE: ", this.state)}
-          {/*
-            this.state.problems.map(obj => {
-            // console.log(obj);
-            var probDesc = obj["Problem Description"];
-            var probDesc = probDesc.split("\n");
-            // for (var i = 0; i < probDesc.length; i++) {
-            //   console.log(probDesc[i]);
-            // }
-
+          {this.props.problems.map(problem => {
             return (
-              <div key={obj["Timestamp"]}>
+              <div key={problem["Timestamp"]}>
                 <pre>
-                  <Link to="/details">{obj["Problem Statement"]}</Link>
+                  <Link to="/details">{problem["Problem Statement"]}</Link>
                 </pre>
                 <pre>
-                  <Linkify>{obj["Contact Details"]}</Linkify>
+                  <Linkify>{problem["Contact Details"]}</Linkify>
                 </pre>
                 <pre>
-                  <Linkify>{obj["Problem Description"]}</Linkify>
+                  <Linkify>{problem["Problem Description"]}</Linkify>
                 </pre>
                 <pre>
-                  <Linkify>{obj["Problem Description"]}</Linkify>
+                  <Linkify>{problem["Problem Description"]}</Linkify>
                 </pre>
               </div>
             );
-          })
-          */}
+          })}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  problems: state.problems
-});
+const mapStateToProps = state => {
+  console.log("MAP STATE TO PROPS");
+  console.log(state);
+  return {
+    problems: state.problems
+  };
+};
 
 const mapDispatchToProps = dispatch => ({});
 

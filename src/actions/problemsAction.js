@@ -5,4 +5,9 @@ const fetchProblems = key => ({
   key
 });
 
-export default fetchProblems;
+const setProblems = problems => ({
+  type: ProblemTypes.SET_PROBLEMS,
+  problems
+});
+
+export { fetchProblems, setProblems };

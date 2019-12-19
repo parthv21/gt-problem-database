@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import "./styles/index.css";
 
 import store from "./store/configureStore";
-import fetchProblems from "./actions/problemsAction";
+import { fetchProblems } from "./actions/problemsAction";
 
 import App from "./components/App";
 import ProblemDetails from "./components/ProblemDetails";
