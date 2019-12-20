@@ -1,0 +1,51 @@
+pre {
+  margin: 0px;
+}
+
+.problem-preview {
+  padding: 5px 20px 10px 20px;
+  border-bottom: 2px solid #eeb211;
+  margin: 5px;
+}
+
+.problem-statement {
+  font-size: 23px;
+  font-family: "Roboto";
+  color: #353839;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 1px;
+}
+
+.problem-statement:hover {
+  transform: translateX(12px);
+}
+
+.sponsor {
+  font-size: 15px;
+  font-family: "Roboto";
+  margin-bottom: 5px;
+}
+
+/* TAG */
+
+.tag-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.tag {
+  margin: 5px;
+  padding: 2px 5px 2px 5px;
+  background-color: #b3a369;
+  border-radius: 2px;
+}
+.tag:hover {
+  transform: translateY(2px);
+}
+
+.tag-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}

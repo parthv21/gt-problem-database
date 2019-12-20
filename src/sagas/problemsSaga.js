@@ -7,8 +7,8 @@ function fetchProblemsPromise(key) {
   return new Promise(resolve => {
     Tabletop.init({
       key: key,
-      callback: googleData => {
-        resolve(googleData);
+      callback: sheet => {
+        resolve(sheet);
       },
       simpleSheet: true
     });
@@ -35,7 +35,15 @@ function* fetchProblems(action) {
   // });
 
   const data = yield call(fetchProblemsPromise, [action.key]);
-  yield put(setProblems(data));
+  var problems = {};
+
+  for (var i = 0; i < data.length; i++) {
+    problems[data[i]["uid"]] = data[i];
+  }
+
+  console.log(problems);
+
+  yield put(setProblems(problems));
 }
 
 export function* watchFetchProblems() {

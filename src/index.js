@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import "./styles/index.css";
@@ -18,10 +18,10 @@ store.dispatch(fetchProblems("1YJHZdoPdEIUE46BSdAGz8BCE10-VMasHI3y4dT3CXp0"));
 const Routing = (
   <Provider store={store}>
     <Router>
-      <div>
+      <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/details" component={ProblemDetails} />
-      </div>
+        <Route path="/details/:id" component={ProblemDetails} />
+      </Switch>
     </Router>
   </Provider>
 );
