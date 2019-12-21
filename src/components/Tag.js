@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { addTag } from "../actions/configActions";
+
 class Tag extends Component {
   render() {
     const { tag, clickable = false, selectTag } = this.props;
@@ -20,7 +22,7 @@ class Tag extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    selectTag: tag => console.log("Selected tag: " + tag)
+    selectTag: tag => dispatch(addTag(tag))
   };
 };
 

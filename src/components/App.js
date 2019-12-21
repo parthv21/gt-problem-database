@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { getProblems } from "../reducer/problemsReducer";
 import ProblemStatement from "./ProblemStatement";
 import TagContainer from "./TagContainer";
 import MetaInformation from "./MetaInformation";
@@ -60,7 +61,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    problems: state.problems
+    problems: getProblems(state)
   };
 };
 
