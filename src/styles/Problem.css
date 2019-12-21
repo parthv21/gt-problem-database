@@ -27,6 +27,15 @@ pre {
   padding: 30px;
 }
 
+.problem-header {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eeb211;
+  background-color: white;
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0px;
+}
+
 /* TAG */
 
 .tag-container {
@@ -64,25 +73,24 @@ pre {
 .section-title {
   font-weight: bold;
   font-size: 16px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 /* SPONSOR INFORMATION */
 
 .sponsor-title {
+  margin-bottom: 15px;
   font-size: 15px;
   font-family: "Roboto";
   color: #353839;
   font-weight: 400;
-  margin-bottom: 5px;
 }
 
 .sponsor-name {
+  margin-bottom: 15px;
   font-size: 15px;
   font-family: "Roboto";
   color: #353839;
   font-weight: 100;
-  margin-bottom: 5px;
 }

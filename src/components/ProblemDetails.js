@@ -6,7 +6,7 @@ import { selectProblem } from "../reducer/problemsReducer";
 import ProblemStatement from "./ProblemStatement";
 import TagContainer from "./TagContainer";
 import ProblemInformation from "./ProblemInformation";
-import SponsorInformation from "./SponsorInformation";
+import MetaInformation from "./MetaInformation";
 
 class ProblemDetails extends Component {
   render() {
@@ -20,12 +20,22 @@ class ProblemDetails extends Component {
     const domain = problem["Problem Domain"];
     const tags = problem["Tags"].split(",");
     const implementationHistory = problem["Implementation History"];
+    const date = new Date(problem["Timestamp"]);
 
     return (
       <div className="problem-details">
-        <ProblemStatement problemStatement={problemStatement} />
-        <SponsorInformation sponsor={sponsor} />
-        <TagContainer tags={tags} />
+        <div className="problem-header">
+          <ProblemStatement problemStatement={problemStatement} />
+          <MetaInformation title="Sponsor" info={sponsor} />
+          <MetaInformation
+            title="Created On"
+            info={
+              date.getMonth() + "-" + date.getDay() + "-" + date.getFullYear()
+            }
+          />
+          <TagContainer tags={tags} />
+        </div>
+
         <ProblemInformation title="Stakeholders" description={stakeholders} />
         <ProblemInformation title="Problem Domain" description={domain} />
         <ProblemInformation title="Description" description={description} />

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import ProblemStatement from "./ProblemStatement";
 import TagContainer from "./TagContainer";
-import SponsorInformation from "./SponsorInformation";
+import MetaInformation from "./MetaInformation";
 
 import logo from "../assets/logo.svg";
 import sheet from "../assets/sheets.png";
@@ -29,13 +29,23 @@ class App extends Component {
             var problemStatement = problem["Problem Statement"];
             var tags = problem["Tags"].split(",");
             var sponsor = problem["Affiliated Organization"];
-
+            var date = new Date(problem["Timestamp"]);
             return (
-              <Link to={"/details/" + id} className="text-link">
+              <Link to={"/details/" + id} className="text-link" key={id}>
                 <div key={id} className="problem-preview">
                   <pre>
                     <ProblemStatement problemStatement={problemStatement} />
-                    <SponsorInformation sponsor={sponsor} />
+                    <MetaInformation title="Sponsor" info={sponsor} />
+                    <MetaInformation
+                      title="Created On"
+                      info={
+                        date.getMonth() +
+                        "-" +
+                        date.getDay() +
+                        "-" +
+                        date.getFullYear()
+                      }
+                    />
                     <TagContainer tags={tags} clickable />
                   </pre>
                 </div>
