@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Linkify from "linkifyjs/react";
+
 import { selectProblem } from "../reducer/problemsReducer";
+
+import ProblemStatement from "./ProblemStatement";
+import TagContainer from "./TagContainer";
+import ProblemInformation from "./ProblemInformation";
+import SponsorInformation from "./SponsorInformation";
 
 class ProblemDetails extends Component {
   render() {
@@ -11,23 +16,24 @@ class ProblemDetails extends Component {
     const sponsor = problem["Affiliated Organization"];
     const contactDetails = problem["Contact Details"];
     const stakeholders = problem["Stakeholders"];
-    const problemDescription = problem["Problem Description"];
+    const description = problem["Problem Description"];
     const domain = problem["Problem Domain"];
-    const tags = problem["Tags"];
+    const tags = problem["Tags"].split(",");
     const implementationHistory = problem["Implementation History"];
 
     return (
-      <div>
-        <div>{problemStatement}</div>
-        <pre>
-          <Linkify>{contactDetails}</Linkify>
-        </pre>
-        <pre>
-          <Linkify>{problemDescription}</Linkify>
-        </pre>
-        <pre>
-          <Linkify>{implementationHistory}</Linkify>
-        </pre>
+      <div className="problem-details">
+        <ProblemStatement problemStatement={problemStatement} />
+        <SponsorInformation sponsor={sponsor} />
+        <TagContainer tags={tags} />
+        <ProblemInformation title="Stakeholders" description={stakeholders} />
+        <ProblemInformation title="Problem Domain" description={domain} />
+        <ProblemInformation title="Description" description={description} />
+        <ProblemInformation
+          title="Implementation History"
+          description={implementationHistory}
+        />
+        <ProblemInformation title="Contact" description={contactDetails} />
       </div>
     );
   }

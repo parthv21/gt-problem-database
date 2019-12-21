@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
 import ProblemStatement from "./ProblemStatement";
-import Tag from "./Tag";
+import TagContainer from "./TagContainer";
+import SponsorInformation from "./SponsorInformation";
 
 import logo from "../assets/logo.svg";
 import sheet from "../assets/sheets.png";
@@ -29,25 +31,15 @@ class App extends Component {
             var sponsor = problem["Affiliated Organization"];
 
             return (
-              <div key={id} className="problem-preview">
-                <pre>
-                  <div className="problemStatement">
-                    <Link to={"/details/" + id}>
-                      <ProblemStatement problemStatement={problemStatement} />
-                    </Link>
-                  </div>
-                  <div className="sponsor">
-                    <span>{"Sponsor: " + sponsor}</span>
-                  </div>
-                  <div className="tag-container">
-                    {tags.map((tag, index) => {
-                      return (
-                        <span key={"tag_" + index}>{<Tag tag={tag} />}</span>
-                      );
-                    })}
-                  </div>
-                </pre>
-              </div>
+              <Link to={"/details/" + id} className="text-link">
+                <div key={id} className="problem-preview">
+                  <pre>
+                    <ProblemStatement problemStatement={problemStatement} />
+                    <SponsorInformation sponsor={sponsor} />
+                    <TagContainer tags={tags} clickable />
+                  </pre>
+                </div>
+              </Link>
             );
           })}
         </div>

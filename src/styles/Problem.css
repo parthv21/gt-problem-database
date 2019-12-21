@@ -2,6 +2,11 @@ pre {
   margin: 0px;
 }
 
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .problem-preview {
   padding: 5px 20px 10px 20px;
   border-bottom: 2px solid #eeb211;
@@ -14,17 +19,12 @@ pre {
   color: #353839;
   font-weight: bold;
   text-decoration: none;
-  margin: 1px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
-.problem-statement:hover {
-  transform: translateX(12px);
-}
-
-.sponsor {
-  font-size: 15px;
-  font-family: "Roboto";
-  margin-bottom: 5px;
+.problem-details {
+  padding: 30px;
 }
 
 /* TAG */
@@ -35,12 +35,13 @@ pre {
 }
 
 .tag {
-  margin: 5px;
+  margin: 2px 5px 2px 0px;
   padding: 2px 5px 2px 5px;
   background-color: #b3a369;
   border-radius: 2px;
 }
-.tag:hover {
+
+.clickable-tag:hover {
   transform: translateY(2px);
 }
 
@@ -48,4 +49,40 @@ pre {
   font-size: 14px;
   font-weight: bold;
   color: white;
+}
+
+/* PROBLEM DESCRIPTION */
+
+.problem-description {
+  font-size: 16px;
+  font-style: "Roboto";
+  line-height: 18px;
+}
+
+/* SECTION TITLE */
+
+.section-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+/* SPONSOR INFORMATION */
+
+.sponsor-title {
+  font-size: 15px;
+  font-family: "Roboto";
+  color: #353839;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.sponsor-name {
+  font-size: 15px;
+  font-family: "Roboto";
+  color: #353839;
+  font-weight: 100;
+  margin-bottom: 5px;
 }

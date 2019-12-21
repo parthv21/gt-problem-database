@@ -1,15 +1,12 @@
 import React, { Component } from "react";
+
 import "../styles/Problem.css";
 
 class ProblemStatement extends Component {
   render() {
-    const problemStatement = this.props.problemStatement;
+    const { problemStatement } = this.props;
 
-    return (
-      <span className="problem-statement">
-        <pre>{problemStatement}</pre>
-      </span>
-    );
+    return <pre className="problem-statement">{problemStatement}</pre>;
   }
 }
 
