@@ -31,38 +31,52 @@ export const getProblems = state => {
 
   if (searchText === "" && filterTags.length === 0) return problems;
 
-  if (searchText !== "") {
-    const keys = Object.keys(problems);
-    for (const key of keys) {
-      var problem = problems[key];
+  const keys = Object.keys(problems);
+  for (const key of keys) {
+    var problem = problems[key];
+    var keep = true;
+
+    if (searchText !== "") {
       if (
-        problem["Problem Statement"]
+        !problem["Problem Statement"]
           .toLowerCase()
           .includes(searchText.toLowerCase())
       ) {
-        filteredProblems[problem["uid"]] = problem;
+        keep = false;
       }
     }
-  }
 
-  if (filterTags.length === 0) return filteredProblems;
+    if (filterTags.length > 0) {
+      const tags = problem["Tags"].split(",");
+      const commonTags = tags.filter(value => filterTags.includes(value));
+      if (!commonTags.length > 0) {
+        keep = false;
+      }
+    }
 
-  if (searchText === "") filteredProblems = problems;
-
-  const tempProblems = filteredProblems;
-  filteredProblems = {};
-
-  const keys = Object.keys(tempProblems);
-  for (const key of keys) {
-    var problem = problems[key];
-    const tags = problem["Tags"].split(",");
-    const commonTags = tags.filter(value => filterTags.includes(value));
-
-    if (commonTags.length > 0) {
+    if (keep) {
       filteredProblems[problem["uid"]] = problem;
     }
   }
-  console.log(filteredProblems);
+
+  // if (filterTags.length === 0) return filteredProblems;
+
+  // if (searchText === "") filteredProblems = problems;
+
+  // const tempProblems = filteredProblems;
+  // filteredProblems = {};
+
+  // const keys = Object.keys(tempProblems);
+  // for (const key of keys) {
+  //   var problem = problems[key];
+  //   const tags = problem["Tags"].split(",");
+  //   const commonTags = tags.filter(value => filterTags.includes(value));
+
+  //   if (commonTags.length > 0) {
+  //     filteredProblems[problem["uid"]] = problem;
+  //   }
+  // }
+  // console.log(filteredProblems);
   return filteredProblems;
 };
 
