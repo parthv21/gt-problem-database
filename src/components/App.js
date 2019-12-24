@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { getProblems } from "../reducer/problemsReducer";
+import { getSelectedTags } from "../reducer/configReducer";
+
 import ProblemStatement from "./ProblemStatement";
 import TagContainer from "./TagContainer";
 import MetaInformation from "./MetaInformation";
+import SelectedTags from "./SelectedTags/SelectedTags";
 
 import logo from "../assets/logo.svg";
 import sheet from "../assets/sheets.png";
@@ -14,7 +17,7 @@ import "../styles/Problem.css";
 
 class App extends Component {
   render() {
-    var problems = this.props.problems;
+    const { problems, selectedTags } = this.props;
 
     return (
       <div className="App">
@@ -23,6 +26,7 @@ class App extends Component {
           <img src={sheet} className="Sheet-logo" alt="sheet" />
           <h1 className="App-title">Problem Database: React + Google Sheets</h1>
         </header>
+        <SelectedTags tags={selectedTags} />
         <div>
           {Object.keys(problems).map(function(key, index) {
             var problem = problems[key];
@@ -61,7 +65,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    problems: getProblems(state)
+    problems: getProblems(state),
+    selectedTags: getSelectedTags(state)
   };
 };
 

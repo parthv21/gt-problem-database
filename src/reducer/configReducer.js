@@ -31,4 +31,8 @@ export const getSearchText = state => {
   return state.config.search;
 };
 
+export const getSelectedTags = state => {
+  return state.config.tags;
+};
+
 export default configReducer;

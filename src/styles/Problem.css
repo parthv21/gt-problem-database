@@ -94,3 +94,35 @@ pre {
   color: #353839;
   font-weight: 100;
 }
+
+/* SELECTED TAGS */
+
+.selected-tag-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #353839;
+  width: 100%;
+  padding: 10px 5px 10px 5px;
+  justify-content: flex-start;
+}
+
+.selected-tag {
+  margin: 2px 5px 2px 0px;
+  padding: 2px 5px 2px 5px;
+  background-color: #b3a369;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.remove-btn {
+  margin-left: 10px;
+  font-size: 22px;
+  color: #b80f0a;
+  background-color: #b3a369;
+}
+.remove-btn:hover {
+  transform: translateX(-2px);
+}
