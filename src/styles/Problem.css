@@ -161,7 +161,7 @@ pre {
 }
 
 .search-bar:focus {
-  width: 80%;
+  width: 75%;
   border: 3px solid white;
   outline: 0;
 }

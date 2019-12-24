@@ -4,17 +4,16 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 30px;
 }
 
 .Sheet-logo {
   animation: shake infinite 5s linear;
-  height: 80px;
+  height: 30px;
 }
 
 .App-header {
-  background-color: #222;
-  padding: 20px;
+  background-color: #353839;
   color: white;
 }
 
@@ -35,6 +34,26 @@ pre {
   /* white-space: -pre-wrap; Opera 4-6 */
   /* white-space: -o-pre-wrap; Opera 7 */
   /* word-wrap: break-word; Internet Explorer 5.5+ */
+}
+
+.hero {
+  width: 100%;
+  /* height: 300px; */
+}
+
+.tag-line {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: "Roboto";
+  margin-left: 5px;
+}
+
+.separator {
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 @keyframes App-logo-spin {

@@ -13,6 +13,7 @@ import MetaInformation from "./MetaInformation";
 
 import logo from "../assets/logo.svg";
 import sheet from "../assets/sheets.png";
+import hero from "../assets/hero.png";
 import "../styles/App.css";
 import "../styles/Problem.css";
 
@@ -23,9 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <img src={sheet} className="Sheet-logo" alt="sheet" />
-          <h1 className="App-title">Problem Database: React + Google Sheets</h1>
+          <img src={hero} className="hero" alt="hero" />
         </header>
         <header className="navbar">
           <SearchBar />

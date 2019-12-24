@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
 import { getSearchText } from "../../reducer/configReducer";
 import { setSearchText } from "../../actions/configActions";
+
+import logo from "../../assets/logo.svg";
+import sheet from "../../assets/sheets.png";
 
 class SearchBar extends Component {
   render() {
@@ -19,6 +22,12 @@ class SearchBar extends Component {
           type="text"
           onChange={e => setSearchText(e.target.value)}
         />
+        <FontAwesomeIcon icon={faEllipsisV} className="separator" />
+        <img src={logo} className="App-logo" alt="logo" />
+        <img src={sheet} className="Sheet-logo" alt="sheet" />
+        <span className="tag-line">
+          Problem Database <br /> React + Sheets
+        </span>
       </div>
     );
   }
