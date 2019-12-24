@@ -8,12 +8,16 @@ import SelectedTag from "./SelectedTag";
 class SelectedTags extends Component {
   render() {
     const { tags } = this.props;
-    return (
+
+    return tags.length > 0 ? (
       <div className="selected-tag-container">
+        <span className="selected-tags-title">Selected Tags </span>
         {tags.map((tag, index) => {
           return <SelectedTag tag={tag} key={"tag_" + index} />;
         })}
       </div>
+    ) : (
+      <div />
     );
   }
 }

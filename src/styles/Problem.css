@@ -41,6 +41,7 @@ pre {
 .tag-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .tag {
@@ -97,14 +98,23 @@ pre {
 
 /* SELECTED TAGS */
 
+.selected-tags-title {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  margin-right: 20px;
+  font-family: "Roboto";
+}
+
 .selected-tag-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   background-color: #353839;
-  width: 100%;
   padding: 10px 5px 10px 5px;
   justify-content: flex-start;
+  overflow: scroll;
 }
 
 .selected-tag {
