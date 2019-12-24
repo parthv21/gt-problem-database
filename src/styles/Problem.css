@@ -102,6 +102,7 @@ pre {
   font-size: 18px;
   color: white;
   font-weight: bold;
+  margin-left: 30px;
   margin-right: 20px;
   font-family: "Roboto";
 }
@@ -135,4 +136,48 @@ pre {
 }
 .remove-btn:hover {
   transform: translateX(-2px);
+}
+
+/* SEARCH BAR */
+
+.search-bar-container {
+  display: flex;
+  background-color: #353839;
+  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+
+.search-bar {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  height: 25px;
+  padding: 5px 10px 5px 20px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.search-bar:focus {
+  width: 80%;
+  border: 3px solid white;
+  outline: 0;
+}
+
+.search-icon {
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+/* NAVBAR */
+
+.navbar {
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0px;
 }

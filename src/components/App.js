@@ -5,10 +5,11 @@ import { connect } from "react-redux";
 import { getProblems } from "../reducer/problemsReducer";
 import { getSelectedTags } from "../reducer/configReducer";
 
+import SearchBar from "./SearchBar/SearchBar";
+import SelectedTags from "./SelectedTags/SelectedTags";
 import ProblemStatement from "./ProblemStatement";
 import TagContainer from "./TagContainer";
 import MetaInformation from "./MetaInformation";
-import SelectedTags from "./SelectedTags/SelectedTags";
 
 import logo from "../assets/logo.svg";
 import sheet from "../assets/sheets.png";
@@ -26,7 +27,11 @@ class App extends Component {
           <img src={sheet} className="Sheet-logo" alt="sheet" />
           <h1 className="App-title">Problem Database: React + Google Sheets</h1>
         </header>
-        <SelectedTags tags={selectedTags} />
+        <header className="navbar">
+          <SearchBar />
+          <SelectedTags tags={selectedTags} />
+        </header>
+
         <div>
           {Object.keys(problems).map(function(key, index) {
             var problem = problems[key];
