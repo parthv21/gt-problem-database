@@ -40,25 +40,25 @@ class App extends Component {
             var sponsor = problem["Affiliated Organization"];
             var date = new Date(problem["Timestamp"]);
             return (
-              <Link to={"/details/" + id} className="text-link" key={id}>
-                <div key={id} className="problem-preview">
-                  <pre>
+              <div key={id} className="problem-preview">
+                <pre>
+                  <Link to={"/details/" + id} className="text-link" key={id}>
                     <ProblemStatement problemStatement={problemStatement} />
-                    <MetaInformation title="Sponsor" info={sponsor} />
-                    <MetaInformation
-                      title="Created On"
-                      info={
-                        date.getMonth() +
-                        "-" +
-                        date.getDay() +
-                        "-" +
-                        date.getFullYear()
-                      }
-                    />
-                    <TagContainer tags={tags} clickable />
-                  </pre>
-                </div>
-              </Link>
+                  </Link>
+                  <MetaInformation title="Sponsor" info={sponsor} />
+                  <MetaInformation
+                    title="Created On"
+                    info={
+                      date.getMonth() +
+                      "-" +
+                      date.getDay() +
+                      "-" +
+                      date.getFullYear()
+                    }
+                  />
+                  <TagContainer tags={tags} clickable />
+                </pre>
+              </div>
             );
           })}
         </div>

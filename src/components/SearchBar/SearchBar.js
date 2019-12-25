@@ -14,7 +14,12 @@ class SearchBar extends Component {
     const { searchText, setSearchText } = this.props;
     return (
       <div className="search-bar-container">
-        <FontAwesomeIcon icon={faSearch} className="search-icon" />
+        <span className="tag-line">
+          Problem Database <br /> React + Sheets
+        </span>
+        <img src={sheet} className="Sheet-logo" alt="sheet" />
+        <img src={logo} className="App-logo" alt="logo" />
+        <FontAwesomeIcon icon={faEllipsisV} className="separator" />
         <input
           placeholder="Search problems..."
           className="search-bar"
@@ -22,12 +27,7 @@ class SearchBar extends Component {
           type="text"
           onChange={e => setSearchText(e.target.value)}
         />
-        <FontAwesomeIcon icon={faEllipsisV} className="separator" />
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={sheet} className="Sheet-logo" alt="sheet" />
-        <span className="tag-line">
-          Problem Database <br /> React + Sheets
-        </span>
+        <FontAwesomeIcon icon={faSearch} className="search-icon" />
       </div>
     );
   }
