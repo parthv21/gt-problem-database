@@ -37,11 +37,14 @@ export const getProblems = state => {
     var keep = true;
 
     if (searchText !== "") {
-      if (
-        !problem["Problem Statement"]
-          .toLowerCase()
-          .includes(searchText.toLowerCase())
-      ) {
+      const inProblemStatement = problem["Problem Statement"]
+        .toLowerCase()
+        .includes(searchText.toLowerCase());
+      const inSponsor = problem["Affiliated Organization"]
+        .toLowerCase()
+        .includes(searchText.toLowerCase());
+
+      if (!inProblemStatement && !inSponsor) {
         keep = false;
       }
     }
