@@ -10,9 +10,8 @@ import SelectedTags from "./SelectedTags/SelectedTags";
 import ProblemStatement from "./ProblemStatement";
 import TagContainer from "./TagContainer";
 import MetaInformation from "./MetaInformation";
+import attributes from "../constants/attributes";
 
-import logo from "../assets/logo.svg";
-import sheet from "../assets/sheets.png";
 import hero from "../assets/hero.png";
 import "../styles/App.css";
 import "../styles/Problem.css";
@@ -34,11 +33,11 @@ class App extends Component {
         <div>
           {Object.keys(problems).map(function(key, index) {
             var problem = problems[key];
-            var id = problem["uid"];
-            var problemStatement = problem["Problem Statement"];
-            var tags = problem["Tags"].split(",");
-            var sponsor = problem["Affiliated Organization"];
-            var date = new Date(problem["Timestamp"]);
+            var id = problem[attributes.uid];
+            var problemStatement = problem[attributes.statement];
+            var tags = problem[attributes.tags].split(",");
+            var sponsor = problem[attributes.sponsor];
+            var date = new Date(problem[attributes.timestamp]);
             return (
               <div key={id} className="problem-preview">
                 <pre>

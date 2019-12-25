@@ -7,20 +7,21 @@ import ProblemStatement from "./ProblemStatement";
 import TagContainer from "./TagContainer";
 import ProblemInformation from "./ProblemInformation";
 import MetaInformation from "./MetaInformation";
+import attributes from "../constants/attributes";
 
 class ProblemDetails extends Component {
   render() {
     const problem = this.props.problem;
 
-    const problemStatement = problem["Problem Statement"];
-    const sponsor = problem["Affiliated Organization"];
-    const contactDetails = problem["Contact Details"];
-    const stakeholders = problem["Stakeholders"];
-    const description = problem["Problem Description"];
-    const domain = problem["Problem Domain"];
-    const tags = problem["Tags"].split(",");
-    const implementationHistory = problem["Implementation History"];
-    const date = new Date(problem["Timestamp"]);
+    const problemStatement = problem[attributes.statement];
+    const sponsor = problem[attributes.sponsor];
+    const contactDetails = problem[attributes.contact];
+    const stakeholders = problem[attributes.stakeholders];
+    const description = problem[attributes.description];
+    const domain = problem[attributes.domain];
+    const tags = problem[attributes.tags].split(",");
+    const implementationHistory = problem[attributes.history];
+    const date = new Date(problem[attributes.timestamp]);
 
     return (
       <div className="problem-details">

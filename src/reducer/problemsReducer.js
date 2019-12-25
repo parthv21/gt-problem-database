@@ -1,4 +1,5 @@
 import ProblemTypes from "../types/problemsTypes";
+import attributes from "../constants/attributes";
 
 var defaultState = {
   problems: {}
@@ -37,10 +38,10 @@ export const getProblems = state => {
     var keep = true;
 
     if (searchText !== "") {
-      const inProblemStatement = problem["Problem Statement"]
+      const inProblemStatement = problem[attributes.statement]
         .toLowerCase()
         .includes(searchText.toLowerCase());
-      const inSponsor = problem["Affiliated Organization"]
+      const inSponsor = problem[attributes.sponsor]
         .toLowerCase()
         .includes(searchText.toLowerCase());
 
@@ -50,7 +51,7 @@ export const getProblems = state => {
     }
 
     if (filterTags.length > 0) {
-      const tags = problem["Tags"].split(",");
+      const tags = problem[attributes.tags].split(",");
       const commonTags = tags.filter(value => filterTags.includes(value));
       if (!commonTags.length > 0) {
         keep = false;
