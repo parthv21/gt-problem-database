@@ -14,11 +14,15 @@ class SearchBar extends Component {
     const { searchText, setSearchText } = this.props;
     return (
       <div className="search-bar-container">
-        <span className="tag-line">
-          Problem Database <br /> React + Sheets
-        </span>
-        <img src={sheet} className="Sheet-logo" alt="sheet" />
-        <img src={logo} className="App-logo" alt="logo" />
+        <div className="project-name">
+          <img src={logo} className="App-logo logo" alt="logo" />
+          <img src={sheet} className="Sheet-logo logo" alt="sheet" />
+          <div>
+            <span className="tag-line">
+              Problem Database <br /> React + Sheets
+            </span>
+          </div>
+        </div>
         <FontAwesomeIcon icon={faEllipsisV} className="separator" />
         <input
           placeholder="Search problems..."

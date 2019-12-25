@@ -4,12 +4,10 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 30px;
 }
 
 .Sheet-logo {
   animation: shake infinite 5s linear;
-  height: 30px;
 }
 
 .App-header {
@@ -44,16 +42,9 @@ pre {
 .tag-line {
   color: white;
   font-weight: bold;
-  font-size: 14px;
+  /* font-size: 14px; */
   font-family: "Roboto";
   margin-left: 5px;
-}
-
-.separator {
-  font-size: 15px;
-  color: white;
-  font-weight: bold;
-  margin-left: 10px;
 }
 
 @keyframes App-logo-spin {

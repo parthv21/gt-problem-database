@@ -2,6 +2,7 @@ import { put, takeEvery, call } from "redux-saga/effects";
 import ProblemTypes from "../types/problemsTypes";
 import Tabletop from "tabletop";
 import { setProblems } from "../actions/problemsAction";
+import attributes from "../constants/attributes";
 
 function fetchProblemsPromise(key) {
   return new Promise(resolve => {
@@ -20,7 +21,7 @@ function* fetchProblems(action) {
   var problems = {};
 
   for (var i = 0; i < data.length; i++) {
-    problems[data[i]["uid"]] = data[i];
+    problems[data[i][attributes.uid]] = data[i];
   }
 
   yield put(setProblems(problems));

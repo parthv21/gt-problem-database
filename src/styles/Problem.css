@@ -14,7 +14,7 @@ pre {
 }
 
 .problem-statement {
-  font-size: 23px;
+  /* font-size: 23px; */
   font-family: "Roboto";
   color: #353839;
   font-weight: bold;
@@ -56,7 +56,7 @@ pre {
 }
 
 .tag-text {
-  font-size: 14px;
+  /* font-size: 14px; */
   font-weight: bold;
   color: white;
 }
@@ -64,7 +64,7 @@ pre {
 /* PROBLEM DESCRIPTION */
 
 .problem-description {
-  font-size: 16px;
+  /* font-size: 16px; */
   font-style: "Roboto";
   line-height: 18px;
 }
@@ -73,24 +73,24 @@ pre {
 
 .section-title {
   font-weight: bold;
-  font-size: 16px;
+  /* font-size: 16px; */
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-/* SPONSOR INFORMATION */
+/* META INFORMATION */
 
-.sponsor-title {
+.meta-title {
   margin-bottom: 15px;
-  font-size: 15px;
+  /* font-size: 15px; */
   font-family: "Roboto";
   color: #353839;
   font-weight: 400;
 }
 
-.sponsor-name {
+.meta-info {
   margin-bottom: 15px;
-  font-size: 15px;
+  /* font-size: 15px; */
   font-family: "Roboto";
   color: #353839;
   font-weight: 100;
@@ -99,10 +99,10 @@ pre {
 /* SELECTED TAGS */
 
 .selected-tags-title {
-  font-size: 18px;
+  /* font-size: 18px; */
   color: white;
   font-weight: bold;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   margin-right: 20px;
   font-family: "Roboto";
 }
@@ -143,11 +143,14 @@ pre {
 .search-bar-container {
   display: flex;
   flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
   background-color: #353839;
-  height: 40px;
+  /* height: 40px; */
   justify-content: flex-end;
   align-items: center;
-  padding: 10px;
+  /* padding: 10px; */
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .search-bar {
@@ -155,14 +158,14 @@ pre {
   color: white;
   font-size: 16px;
   font-weight: 600;
-  height: 25px;
+  /* height: 25px; */
   padding: 5px 10px 5px 20px;
   border: 2px solid white;
   border-radius: 5px;
 }
 
 .search-bar:focus {
-  width: 75%;
+  /* width: 75%; */
   border: 3px solid white;
   outline: 0;
 }
@@ -176,6 +179,13 @@ pre {
   transform: rotateZ(90deg);
 }
 
+.separator {
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 @keyframes rotate {
   0% {
     transform: rotateZ(0deg);
@@ -187,10 +197,10 @@ pre {
 }
 
 .search-icon {
-  font-size: 25px;
+  /* font-size: 25px; */
   color: white;
   font-weight: bold;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   margin-right: 10px;
 }
 
@@ -200,4 +210,114 @@ pre {
   position: sticky;
   position: -webkit-sticky; /* Safari */
   top: 0px;
+}
+
+/* PROJECT NAME */
+
+.project-name {
+  display: flex;
+  align-items: center;
+  background-color: #9f8170;
+  padding: 2px 4px 2px 4px;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 500px) {
+  .search-bar {
+    height: 20px;
+    font-size: 13px;
+    padding: 5px;
+  }
+  .search-icon {
+    margin-left: 10px;
+    font-size: 15px;
+  }
+  .selected-tag-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .remove-btn {
+    font-size: 16px;
+  }
+  .separator {
+    display: none;
+  }
+  .problem-statement {
+    font-size: 16px;
+  }
+  .section-title {
+    font-size: 13px;
+  }
+  .problem-description {
+    font-size: 13px;
+  }
+  .meta-title {
+    font-size: 12px;
+  }
+  .meta-info {
+    font-size: 12px;
+  }
+  .tag-text {
+    font-size: 11px;
+  }
+  .selected-tags-title {
+    font-size: 13px;
+  }
+  .tag-line {
+    font-size: 11px;
+  }
+  .logo {
+    height: 18px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .search-bar:focus {
+    width: 75%;
+  }
+  .search-bar {
+    height: 25px;
+    font-size: 16px;
+  }
+  .search-icon {
+    margin-left: 30px;
+    font-size: 25px;
+  }
+  .selected-tag-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .remove-btn {
+    font-size: 22px;
+  }
+  .problem-statement {
+    font-size: 23px;
+  }
+  .section-title {
+    font-size: 16px;
+  }
+  .problem-description {
+    font-size: 16px;
+  }
+  .meta-title {
+    font-size: 15px;
+  }
+  .meta-info {
+    font-size: 15px;
+  }
+  .tag-text {
+    font-size: 14px;
+  }
+  .selected-tags-title {
+    font-size: 18px;
+  }
+  .tag-line {
+    font-size: 14px;
+  }
+  .logo {
+    height: 30px;
+  }
 }
