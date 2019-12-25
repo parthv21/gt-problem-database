@@ -16,24 +16,6 @@ function fetchProblemsPromise(key) {
 }
 
 function* fetchProblems(action) {
-  console.log("Fetching Problems");
-  // Tabletop.init({
-  //   key: action.key,
-  //   callback: googleData => {
-  //     console.log(googleData);
-  //   },
-  //   simpleSheet: true
-  // });
-
-  // Tabletop.init({
-  //   key: action.key,
-  //   callback: yield function*(googleData) {
-  //     console.log(googleData);
-  //     yield put(setProblems(googleData));
-  //   },
-  //   simpleSheet: true
-  // });
-
   const data = yield call(fetchProblemsPromise, [action.key]);
   var problems = {};
 
@@ -41,12 +23,9 @@ function* fetchProblems(action) {
     problems[data[i]["uid"]] = data[i];
   }
 
-  console.log(problems);
-
   yield put(setProblems(problems));
 }
 
 export function* watchFetchProblems() {
-  console.log("Watching for fetch problems");
   yield takeEvery(ProblemTypes.FETCH_PROBLEMS, fetchProblems);
 }
