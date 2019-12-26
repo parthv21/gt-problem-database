@@ -17,8 +17,8 @@ class SearchBar extends Component {
     return (
       <div className="search-bar-container">
         <div className="project-name">
-          <img src={logo} className="App-logo logo" alt="logo" />
-          <img src={sheet} className="Sheet-logo logo" alt="sheet" />
+          <img src={logo} className="app-logo logo" alt="logo" />
+          <img src={sheet} className="sheet-logo logo" alt="sheet" />
           <div>
             <span className="tag-line">
               Problem Database <br /> React + Sheets

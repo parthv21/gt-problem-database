@@ -1,13 +1,7 @@
-* {
+pre,
+span,
+input {
   font-family: "Roboto";
-}
-
-.app-logo {
-  animation: App-logo-spin infinite 20s linear;
-}
-
-.sheet-logo {
-  animation: shake infinite 5s linear;
 }
 
 .app-header {
@@ -29,51 +23,4 @@ pre {
   position: sticky;
   position: -webkit-sticky; /* Safari */
   top: 0px;
-}
-
-.tag-line {
-  color: white;
-  font-weight: bold;
-  margin-left: 5px;
-}
-
-.project-name {
-  display: flex;
-  align-items: center;
-  background-color: #9f8170;
-  padding: 2px 4px 2px 4px;
-  border-radius: 2px;
-  margin-left: 10px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
 }
