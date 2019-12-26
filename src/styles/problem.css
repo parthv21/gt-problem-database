@@ -1,0 +1,57 @@
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.problem-preview {
+  padding: 5px 20px 10px 20px;
+  border-bottom: 2px solid #eeb211;
+  margin: 5px;
+}
+
+.problem-statement {
+  font-family: "Roboto";
+  color: #353839;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.problem-details {
+  padding: 30px;
+}
+
+.problem-header {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eeb211;
+  background-color: white;
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0px;
+}
+
+.problem-description {
+  font-style: "Roboto";
+  line-height: 18px;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.meta-title {
+  margin-bottom: 15px;
+  font-family: "Roboto";
+  color: #353839;
+  font-weight: 400;
+}
+
+.meta-info {
+  margin-bottom: 15px;
+  font-family: "Roboto";
+  color: #353839;
+  font-weight: 100;
+}

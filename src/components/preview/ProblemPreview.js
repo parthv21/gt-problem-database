@@ -5,6 +5,8 @@ import TagContainer from "../tag/TagContainer";
 import MetaInformation from "../problem/MetaInformation";
 import attributes from "../../constants/attributes";
 
+import "../../styles/problem.css";
+
 const ProblemPreview = ({ problem }) => {
   var id = problem[attributes.uid];
   var problemStatement = problem[attributes.statement];

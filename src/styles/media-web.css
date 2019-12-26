@@ -1,0 +1,47 @@
+@media only screen and (min-width: 500px) {
+  .search-bar:focus {
+    width: 75%;
+  }
+  .search-bar {
+    height: 25px;
+    font-size: 16px;
+  }
+  .search-icon {
+    margin-left: 30px;
+    font-size: 25px;
+  }
+  .selected-tag-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .remove-btn {
+    font-size: 22px;
+  }
+  .problem-statement {
+    font-size: 23px;
+  }
+  .section-title {
+    font-size: 17px;
+  }
+  .problem-description {
+    font-size: 16px;
+  }
+  .meta-title {
+    font-size: 15px;
+  }
+  .meta-info {
+    font-size: 15px;
+  }
+  .tag-text {
+    font-size: 14px;
+  }
+  .selected-tags-title {
+    font-size: 18px;
+  }
+  .tag-line {
+    font-size: 14px;
+  }
+  .logo {
+    height: 30px;
+  }
+}

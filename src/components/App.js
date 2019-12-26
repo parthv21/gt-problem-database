@@ -9,16 +9,18 @@ import SelectedTags from "./selectedTags/SelectedTags";
 import ProblemPreview from "./preview/ProblemPreview";
 
 import hero from "../assets/hero.png";
-import "../styles/App.css";
-import "../styles/Problem.css";
+
+import "../styles/app.css";
+import "../styles/media-mobile.css";
+import "../styles/media-web.css";
 
 class App extends Component {
   render() {
     const { problems, selectedTags } = this.props;
 
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="app">
+        <header className="app-header">
           <img src={hero} className="hero" alt="hero" />
         </header>
         <header className="navbar">

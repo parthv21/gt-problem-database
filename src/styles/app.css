@@ -1,50 +1,51 @@
-.App {
+.app {
   text-align: center;
 }
 
-.App-logo {
+.app-logo {
   animation: App-logo-spin infinite 20s linear;
 }
 
-.Sheet-logo {
+.sheet-logo {
   animation: shake infinite 5s linear;
 }
 
-.App-header {
-  background-color: #353839;
+.app-header {
+  background-color: black;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
 }
 
 pre {
   text-align: left;
   white-space: pre-line;
   font-family: "Roboto";
-  /* white-space: pre-wrap; Since CSS 2.1 */
-  /* white-space: -moz-pre-wrap; Mozilla, since 1999 */
-  /* white-space: -pre-wrap; Opera 4-6 */
-  /* white-space: -o-pre-wrap; Opera 7 */
-  /* word-wrap: break-word; Internet Explorer 5.5+ */
+  margin: 0px;
 }
 
 .hero {
   width: 100%;
-  /* height: 300px; */
+}
+
+.navbar {
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0px;
 }
 
 .tag-line {
   color: white;
   font-weight: bold;
-  /* font-size: 14px; */
   font-family: "Roboto";
   margin-left: 5px;
+}
+
+.project-name {
+  display: flex;
+  align-items: center;
+  background-color: #9f8170;
+  padding: 2px 4px 2px 4px;
+  border-radius: 2px;
+  margin-left: 10px;
 }
 
 @keyframes App-logo-spin {

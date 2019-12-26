@@ -9,6 +9,8 @@ import { setSearchText } from "../../actions/configActions";
 import logo from "../../assets/logo.svg";
 import sheet from "../../assets/sheets.png";
 
+import "../../styles/searchBar.css";
+
 class SearchBar extends Component {
   render() {
     const { searchText, setSearchText } = this.props;

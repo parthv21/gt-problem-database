@@ -9,6 +9,8 @@ import ProblemInformation from "./ProblemInformation";
 import MetaInformation from "./MetaInformation";
 import attributes from "../../constants/attributes";
 
+import "../../styles/problem.css";
+
 class ProblemDetails extends Component {
   render() {
     const problem = this.props.problem;

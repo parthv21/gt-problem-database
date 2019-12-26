@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import Tag from "./Tag";
 
+import "../../styles/tags.css";
+
 class TagContainer extends Component {
   render() {
     const { tags, clickable = false } = this.props;
