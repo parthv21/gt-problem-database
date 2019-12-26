@@ -1,5 +1,5 @@
-.app {
-  text-align: center;
+* {
+  font-family: "Roboto";
 }
 
 .app-logo {
@@ -18,7 +18,6 @@
 pre {
   text-align: left;
   white-space: pre-line;
-  font-family: "Roboto";
   margin: 0px;
 }
 
@@ -35,7 +34,6 @@ pre {
 .tag-line {
   color: white;
   font-weight: bold;
-  font-family: "Roboto";
   margin-left: 5px;
 }
 

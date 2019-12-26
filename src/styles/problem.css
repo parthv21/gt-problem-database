@@ -9,13 +9,19 @@
   margin: 5px;
 }
 
+.problem-statement-container {
+  margin-bottom: 20px;
+}
+
 .problem-statement {
-  font-family: "Roboto";
   color: #353839;
   font-weight: bold;
   text-decoration: none;
   margin-top: 5px;
-  margin-bottom: 10px;
+}
+
+.selectable-problem-statement:hover {
+  text-decoration: underline;
 }
 
 .problem-details {
@@ -44,14 +50,12 @@
 
 .meta-title {
   margin-bottom: 15px;
-  font-family: "Roboto";
   color: #353839;
   font-weight: 400;
 }
 
 .meta-info {
   margin-bottom: 15px;
-  font-family: "Roboto";
   color: #353839;
   font-weight: 100;
 }
