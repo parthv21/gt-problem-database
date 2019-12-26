@@ -63,24 +63,6 @@ export const getProblems = state => {
     }
   }
 
-  // if (filterTags.length === 0) return filteredProblems;
-
-  // if (searchText === "") filteredProblems = problems;
-
-  // const tempProblems = filteredProblems;
-  // filteredProblems = {};
-
-  // const keys = Object.keys(tempProblems);
-  // for (const key of keys) {
-  //   var problem = problems[key];
-  //   const tags = problem["Tags"].split(",");
-  //   const commonTags = tags.filter(value => filterTags.includes(value));
-
-  //   if (commonTags.length > 0) {
-  //     filteredProblems[problem["uid"]] = problem;
-  //   }
-  // }
-  // console.log(filteredProblems);
   return filteredProblems;
 };
 
