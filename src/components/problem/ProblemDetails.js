@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { selectProblem } from "../reducer/problemsReducer";
+import { selectProblem } from "../../reducer/problemsReducer";
 
 import ProblemStatement from "./ProblemStatement";
-import TagContainer from "./TagContainer";
+import TagContainer from "../tag/TagContainer";
 import ProblemInformation from "./ProblemInformation";
 import MetaInformation from "./MetaInformation";
-import attributes from "../constants/attributes";
+import attributes from "../../constants/attributes";
 
 class ProblemDetails extends Component {
   render() {

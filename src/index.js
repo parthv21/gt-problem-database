@@ -9,7 +9,7 @@ import store from "./store/configureStore";
 import { fetchProblems } from "./actions/problemsAction";
 
 import App from "./components/App";
-import ProblemDetails from "./components/ProblemDetails";
+import ProblemDetails from "./components/problem/ProblemDetails";
 
 import registerServiceWorker from "./registerServiceWorker";
 

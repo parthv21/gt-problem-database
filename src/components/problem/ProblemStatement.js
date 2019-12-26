@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../styles/Problem.css";
+import "../../styles/Problem.css";
 
 class ProblemStatement extends Component {
   render() {

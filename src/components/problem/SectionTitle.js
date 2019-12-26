@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Problem.css";
+import "../../styles/Problem.css";
 
 const SectionTitle = ({ title }) => {
   return (

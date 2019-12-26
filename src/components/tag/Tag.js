@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { addTag } from "../actions/configActions";
+import { addTag } from "../../actions/configActions";
 
 class Tag extends Component {
   render() {
