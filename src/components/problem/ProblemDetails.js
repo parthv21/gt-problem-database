@@ -33,7 +33,12 @@ class ProblemDetails extends Component {
           <MetaInformation
             title="Created On"
             info={
-              date.getMonth() + "-" + date.getDay() + "-" + date.getFullYear()
+              date.getMonth() +
+              1 +
+              "/" +
+              date.getDate() +
+              "/" +
+              date.getFullYear()
             }
           />
           <TagContainer tags={tags} />

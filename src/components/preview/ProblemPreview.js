@@ -12,13 +12,16 @@ const ProblemPreview = ({ problem }) => {
   var tags = problem[attributes.tags].split(",");
   var sponsor = problem[attributes.sponsor];
   var date = new Date(problem[attributes.timestamp]);
+
   return (
     <div key={id} className="problem-preview">
       <ProblemStatement problemStatement={problemStatement} id={id} clickable />
       <MetaInformation title="Sponsor" info={sponsor} />
       <MetaInformation
         title="Created On"
-        info={date.getMonth() + "-" + date.getDay() + "-" + date.getFullYear()}
+        info={
+          date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()
+        }
       />
       <TagContainer tags={tags} clickable />
     </div>
