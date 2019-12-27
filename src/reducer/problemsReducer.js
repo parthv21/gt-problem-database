@@ -33,9 +33,11 @@ export const getProblems = state => {
   if (searchText === "" && filterTags.length === 0) return problems;
 
   const keys = Object.keys(problems);
+
   for (const key of keys) {
     var problem = problems[key];
     var keep = true;
+    const tags = problem[attributes.tags].split(",");
 
     if (searchText !== "") {
       const inProblemStatement = problem[attributes.statement]
@@ -45,13 +47,20 @@ export const getProblems = state => {
         .toLowerCase()
         .includes(searchText.toLowerCase());
 
-      if (!inProblemStatement && !inSponsor) {
+      var inTag = false;
+
+      tags.forEach(tag => {
+        if (tag.toLowerCase().includes(searchText)) {
+          inTag = true;
+        }
+      });
+
+      if (!inProblemStatement && !inSponsor && !inTag) {
         keep = false;
       }
     }
 
     if (filterTags.length > 0) {
-      const tags = problem[attributes.tags].split(",");
       const commonTags = tags.filter(value => filterTags.includes(value));
       if (!commonTags.length > 0) {
         keep = false;
