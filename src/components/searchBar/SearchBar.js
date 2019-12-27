@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import ReactTooltip from "react-tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
@@ -9,11 +10,18 @@ import {
   faCalendarAlt
 } from "@fortawesome/free-solid-svg-icons";
 
-import { getSearchText, getDescendingSort } from "../../reducer/configReducer";
+import {
+  getSearchText,
+  getDescendingSort,
+  getCaseSensitiveMatch,
+  getWholeWordMatch
+} from "../../reducer/configReducer";
 import {
   setSearchText,
   clearSearchText,
-  toggleSortOrder
+  toggleSortOrder,
+  toggleCaseSensitiveMatch,
+  toggleWholeWordMatch
 } from "../../actions/configActions";
 
 import logo from "../../assets/logo.svg";
@@ -26,9 +34,13 @@ class SearchBar extends Component {
     const {
       searchText,
       descendingSort,
+      caseSensitiveMatch,
+      wholeWordMatch,
       setSearchText,
       clearSearchText,
-      toggleSortOrder
+      toggleSortOrder,
+      toggleCaseSensitiveMatch,
+      toggleWholeWordMatch
     } = this.props;
     return (
       <div className="search-bar-container">
@@ -50,12 +62,42 @@ class SearchBar extends Component {
             icon={faCalendarAlt}
             className="sort-order-toggle-btn sort-order-calendar"
           />
-
           <FontAwesomeIcon
             icon={descendingSort ? faSortNumericDownAlt : faSortNumericDown}
             className="sort-order-toggle-btn"
           />
         </div>
+
+        <div
+          className={
+            wholeWordMatch
+              ? "search-settings-btn selected-search-settings-btn"
+              : "search-settings-btn"
+          }
+          onClick={() => toggleWholeWordMatch()}
+          data-tip="Toggle word match"
+        >
+          <span
+            className="whole-word-match-toggle"
+            style={{ paddingRight: "5px" }}
+          >
+            Ab
+          </span>
+          <span style={{ marginLeft: "-12px", fontWeight: 100 }}>｜</span>
+        </div>
+
+        <div
+          className={
+            caseSensitiveMatch
+              ? "search-settings-btn selected-search-settings-btn"
+              : "search-settings-btn"
+          }
+          onClick={() => toggleCaseSensitiveMatch()}
+          data-tip="Toggle case sensitive match"
+        >
+          <span>aA</span>
+        </div>
+
         {searchText.length !== 0 ? (
           <div className="clear-search-btn-container">
             <div className="clear-search-btn" onClick={() => clearSearchText()}>
@@ -73,6 +115,7 @@ class SearchBar extends Component {
           onChange={e => setSearchText(e.target.value)}
         />
         <FontAwesomeIcon icon={faSearch} className="search-icon" />
+        <ReactTooltip effect="solid" />
       </div>
     );
   }
@@ -80,13 +123,17 @@ class SearchBar extends Component {
 
 const mapStateToProp = state => ({
   searchText: getSearchText(state),
-  descendingSort: getDescendingSort(state)
+  descendingSort: getDescendingSort(state),
+  caseSensitiveMatch: getCaseSensitiveMatch(state),
+  wholeWordMatch: getWholeWordMatch(state)
 });
 
 const mapDispatchToProp = dispatch => ({
   setSearchText: searchText => dispatch(setSearchText(searchText)),
   clearSearchText: () => dispatch(clearSearchText()),
-  toggleSortOrder: () => dispatch(toggleSortOrder())
+  toggleSortOrder: () => dispatch(toggleSortOrder()),
+  toggleCaseSensitiveMatch: () => dispatch(toggleCaseSensitiveMatch()),
+  toggleWholeWordMatch: () => dispatch(toggleWholeWordMatch())
 });
 
 const ConnectedSearchBar = connect(

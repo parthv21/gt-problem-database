@@ -3,7 +3,9 @@ import ConfigTypes from "../types/configTypes";
 var defaultState = {
   searchText: "",
   tags: [],
-  descendingSort: true
+  descendingSort: true,
+  caseSensitiveMatch: false,
+  wholeWordMatch: false
 };
 
 const configReducer = (state = defaultState, action) => {
@@ -31,6 +33,14 @@ const configReducer = (state = defaultState, action) => {
       return { ...state, descendingSort: !state.descendingSort };
     }
 
+    case ConfigTypes.TOGGLE_CASE_SENSITIVE_MATCH: {
+      return { ...state, caseSensitiveMatch: !state.caseSensitiveMatch };
+    }
+
+    case ConfigTypes.TOGGLE_WHOLE_WORD_MATCH: {
+      return { ...state, wholeWordMatch: !state.wholeWordMatch };
+    }
+
     default:
       return state;
   }
@@ -46,6 +56,14 @@ export const getSelectedTags = state => {
 
 export const getDescendingSort = state => {
   return state.config.descendingSort;
+};
+
+export const getCaseSensitiveMatch = state => {
+  return state.config.caseSensitiveMatch;
+};
+
+export const getWholeWordMatch = state => {
+  return state.config.wholeWordMatch;
 };
 
 export default configReducer;

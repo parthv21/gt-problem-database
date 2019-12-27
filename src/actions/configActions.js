@@ -23,4 +23,20 @@ const toggleSortOrder = () => ({
   type: ConfigTypes.TOGGLE_SORT_ORDER
 });
 
-export { setSearchText, clearSearchText, addTag, removeTag, toggleSortOrder };
+const toggleCaseSensitiveMatch = () => ({
+  type: ConfigTypes.TOGGLE_CASE_SENSITIVE_MATCH
+});
+
+const toggleWholeWordMatch = () => ({
+  type: ConfigTypes.TOGGLE_WHOLE_WORD_MATCH
+});
+
+export {
+  setSearchText,
+  clearSearchText,
+  addTag,
+  removeTag,
+  toggleSortOrder,
+  toggleCaseSensitiveMatch,
+  toggleWholeWordMatch
+};
