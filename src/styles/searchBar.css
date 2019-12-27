@@ -32,9 +32,19 @@
   transform: rotateZ(90deg);
 }
 
+.clear-search-btn-container {
+  z-index: 1;
+}
+
+.clear-search-btn-container:hover + input {
+  color: rgba(256, 256, 256, 0.4);
+}
+
 .clear-search-btn {
   margin-left: 5px;
   color: #b80f0a;
+  margin-left: -25px;
+  z-index: 1;
 }
 
 .search-bar-btn-container {
@@ -44,9 +54,6 @@
   margin-top: -10px;
   margin-bottom: -10px;
   cursor: pointer;
-}
-.clear-search-btn:hover + input {
-  color: rgba(256, 256, 256, 0.4);
 }
 
 .sort-order-toggle-btn {

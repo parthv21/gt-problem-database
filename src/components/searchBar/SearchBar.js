@@ -56,14 +56,11 @@ class SearchBar extends Component {
             className="sort-order-toggle-btn"
           />
         </div>
-
-        {/*<FontAwesomeIcon icon={faEllipsisV} className="separator" />*/}
         {searchText.length !== 0 ? (
-          <div
-            className="search-bar-btn-container clear-search-btn"
-            onClick={() => clearSearchText()}
-          >
-            <FontAwesomeIcon icon={faTrashAlt} />
+          <div className="clear-search-btn-container">
+            <div className="clear-search-btn" onClick={() => clearSearchText()}>
+              <FontAwesomeIcon icon={faTrashAlt} />
+            </div>
           </div>
         ) : (
           <div />
