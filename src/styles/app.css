@@ -24,3 +24,8 @@ pre {
   position: -webkit-sticky; /* Safari */
   top: 0px;
 }
+
+.search-highlight {
+  background-color: yellow;
+  color: black;
+}

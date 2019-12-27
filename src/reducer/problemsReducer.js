@@ -1,5 +1,6 @@
 import ProblemTypes from "../types/problemsTypes";
 import attributes from "../constants/attributes";
+import { addGlobalHighlightSpan, addHighlightSpan } from "../utils/stringUtils";
 
 var defaultState = {
   problems: {}
@@ -38,22 +39,44 @@ export const getProblems = state => {
     var problem = problems[key];
     var keep = true;
     const tags = problem[attributes.tags].split(",");
+    var highlightedTags;
 
     if (searchText !== "") {
-      const inProblemStatement = problem[attributes.statement]
-        .toLowerCase()
-        .includes(searchText.toLowerCase());
-      const inSponsor = problem[attributes.sponsor]
-        .toLowerCase()
-        .includes(searchText.toLowerCase());
+      var inProblemStatement = false;
+      var problemStatement = problem[attributes.statement];
+      if (problemStatement.toLowerCase().includes(searchText.toLowerCase())) {
+        inProblemStatement = true;
+        problemStatement = addGlobalHighlightSpan(problemStatement, searchText);
+
+        problem = {
+          ...problem,
+          [attributes.statement]: problemStatement
+        };
+      }
+      var inSponsor = false;
+      var sponsor = problem[attributes.sponsor];
+      if (sponsor.toLowerCase().includes(searchText.toLowerCase())) {
+        inSponsor = true;
+        sponsor = addHighlightSpan(sponsor, searchText);
+        console.log(sponsor);
+        problem = {
+          ...problem,
+          [attributes.sponsor]: sponsor
+        };
+      }
 
       var inTag = false;
-
-      tags.forEach(tag => {
+      highlightedTags = tags.map(tag => {
         if (tag.toLowerCase().includes(searchText)) {
           inTag = true;
+          if (!filterTags.includes(tag)) {
+            return addHighlightSpan(tag, searchText);
+          }
         }
+        return tag;
       });
+      console.log("Highlighted Tags");
+      console.log(highlightedTags);
 
       if (!inProblemStatement && !inSponsor && !inTag) {
         keep = false;
@@ -68,6 +91,10 @@ export const getProblems = state => {
     }
 
     if (keep) {
+      problem = {
+        ...problem,
+        [attributes.tags]: highlightedTags.join(",")
+      };
       filteredProblems[problem["uid"]] = problem;
     }
   }

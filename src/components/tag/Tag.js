@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import parse from "html-react-parser";
 
 import { addTag } from "../../actions/configActions";
+import { stripHtml } from "../../utils/stringUtils";
 
 class Tag extends Component {
   render() {
@@ -11,10 +13,10 @@ class Tag extends Component {
         className={clickable ? "tag clickable-tag" : "tag"}
         onClick={e => {
           e.preventDefault();
-          clickable ? selectTag(tag) : console.log("NOT CLICKABLE");
+          clickable ? selectTag(stripHtml(tag)) : console.log("NOT CLICKABLE");
         }}
       >
-        <span className="tag-text">{tag}</span>
+        <span className="tag-text">{parse(tag)}</span>
       </div>
     );
   }
