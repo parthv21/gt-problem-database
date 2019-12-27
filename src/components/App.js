@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { getProblems } from "../reducer/problemsReducer";
-import { getSelectedTags } from "../reducer/configReducer";
+import { getSelectedTags, getDescendingSort } from "../reducer/configReducer";
 
 import SearchBar from "./searchBar/SearchBar";
 import SelectedTags from "./selectedTags/SelectedTags";
@@ -16,7 +16,7 @@ import "../styles/media-web.css";
 
 class App extends Component {
   render() {
-    const { problems, selectedTags } = this.props;
+    const { problems, selectedTags, descendingSort } = this.props;
 
     return (
       <div className="app">
@@ -29,10 +29,17 @@ class App extends Component {
         </header>
 
         <div>
-          {Object.keys(problems).map(function(key, index) {
-            var problem = problems[key];
-            return <ProblemPreview problem={problem} key={key} />;
-          })}
+          {descendingSort
+            ? Object.keys(problems)
+                .reverse()
+                .map(function(key, index) {
+                  var problem = problems[key];
+                  return <ProblemPreview problem={problem} key={key} />;
+                })
+            : Object.keys(problems).map(function(key, index) {
+                var problem = problems[key];
+                return <ProblemPreview problem={problem} key={key} />;
+              })}
         </div>
       </div>
     );
@@ -42,7 +49,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     problems: getProblems(state),
-    selectedTags: getSelectedTags(state)
+    selectedTags: getSelectedTags(state),
+    descendingSort: getDescendingSort(state)
   };
 };
 

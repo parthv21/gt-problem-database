@@ -58,7 +58,6 @@ export const getProblems = state => {
       if (sponsor.toLowerCase().includes(searchText.toLowerCase())) {
         inSponsor = true;
         sponsor = addHighlightSpan(sponsor, searchText);
-        console.log(sponsor);
         problem = {
           ...problem,
           [attributes.sponsor]: sponsor
@@ -75,8 +74,6 @@ export const getProblems = state => {
         }
         return tag;
       });
-      console.log("Highlighted Tags");
-      console.log(highlightedTags);
 
       if (!inProblemStatement && !inSponsor && !inTag) {
         keep = false;

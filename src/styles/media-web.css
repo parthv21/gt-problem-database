@@ -1,14 +1,20 @@
 @media only screen and (min-width: 500px) {
-  .search-bar:focus {
-    width: 75%;
-  }
   .search-bar {
+    /* width: 75%; */
+    width: 600px;
     height: 25px;
     font-size: 16px;
   }
   .search-icon {
     margin-left: 30px;
     font-size: 25px;
+  }
+  .clear-search-btn {
+    margin-left: 5px;
+    font-size: 20px;
+  }
+  .sort-order-toggle-btn {
+    font-size: 20px;
   }
   .selected-tag-container {
     padding-left: 30px;

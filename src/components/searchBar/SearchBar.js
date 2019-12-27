@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrashAlt,
+  faSearch,
+  faSortNumericDown,
+  faSortNumericDownAlt,
+  faCalendarAlt
+} from "@fortawesome/free-solid-svg-icons";
 
-import { getSearchText } from "../../reducer/configReducer";
-import { setSearchText } from "../../actions/configActions";
+import { getSearchText, getDescendingSort } from "../../reducer/configReducer";
+import {
+  setSearchText,
+  clearSearchText,
+  toggleSortOrder
+} from "../../actions/configActions";
 
 import logo from "../../assets/logo.svg";
 import sheet from "../../assets/sheets.png";
@@ -13,7 +23,13 @@ import "../../styles/searchBar.css";
 
 class SearchBar extends Component {
   render() {
-    const { searchText, setSearchText } = this.props;
+    const {
+      searchText,
+      descendingSort,
+      setSearchText,
+      clearSearchText,
+      toggleSortOrder
+    } = this.props;
     return (
       <div className="search-bar-container">
         <div className="project-name">
@@ -25,7 +41,33 @@ class SearchBar extends Component {
             </span>
           </div>
         </div>
-        <FontAwesomeIcon icon={faEllipsisV} className="separator" />
+
+        <div
+          className="search-bar-btn-container"
+          onClick={() => toggleSortOrder()}
+        >
+          <FontAwesomeIcon
+            icon={faCalendarAlt}
+            className="sort-order-toggle-btn sort-order-calendar"
+          />
+
+          <FontAwesomeIcon
+            icon={descendingSort ? faSortNumericDownAlt : faSortNumericDown}
+            className="sort-order-toggle-btn"
+          />
+        </div>
+
+        {/*<FontAwesomeIcon icon={faEllipsisV} className="separator" />*/}
+        {searchText.length !== 0 ? (
+          <div
+            className="search-bar-btn-container clear-search-btn"
+            onClick={() => clearSearchText()}
+          >
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </div>
+        ) : (
+          <div />
+        )}
         <input
           placeholder="Search problems..."
           className="search-bar"
@@ -40,11 +82,14 @@ class SearchBar extends Component {
 }
 
 const mapStateToProp = state => ({
-  searchText: getSearchText(state)
+  searchText: getSearchText(state),
+  descendingSort: getDescendingSort(state)
 });
 
 const mapDispatchToProp = dispatch => ({
-  setSearchText: searchText => dispatch(setSearchText(searchText))
+  setSearchText: searchText => dispatch(setSearchText(searchText)),
+  clearSearchText: () => dispatch(clearSearchText()),
+  toggleSortOrder: () => dispatch(toggleSortOrder())
 });
 
 const ConnectedSearchBar = connect(

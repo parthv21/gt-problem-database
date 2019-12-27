@@ -5,6 +5,10 @@ const setSearchText = searchText => ({
   searchText
 });
 
+const clearSearchText = () => ({
+  type: ConfigTypes.CLEAR_SEARCH_TEXT
+});
+
 const addTag = tag => ({
   type: ConfigTypes.ADD_TAG,
   tag
@@ -15,4 +19,8 @@ const removeTag = tag => ({
   tag
 });
 
-export { setSearchText, addTag, removeTag };
+const toggleSortOrder = () => ({
+  type: ConfigTypes.TOGGLE_SORT_ORDER
+});
+
+export { setSearchText, clearSearchText, addTag, removeTag, toggleSortOrder };

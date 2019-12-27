@@ -8,6 +8,12 @@
     margin-left: 10px;
     font-size: 15px;
   }
+  .clear-search-btn {
+    font-size: 15px;
+  }
+  .sort-order-toggle-btn {
+    font-size: 15px;
+  }
   .selected-tag-container {
     padding-left: 10px;
     padding-right: 10px;
