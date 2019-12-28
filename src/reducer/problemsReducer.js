@@ -1,6 +1,12 @@
 import ProblemTypes from "../types/problemsTypes";
 import attributes from "../constants/attributes";
-import { addGlobalHighlightSpan, addHighlightSpan } from "../utils/stringUtils";
+import { checkForMatch, addHighlightSpan } from "../utils/stringUtils";
+import {
+  getSearchText,
+  getSelectedTags,
+  getCaseSensitiveMatch,
+  getWholeWordMatch
+} from "./configReducer";
 
 var defaultState = {
   problems: {}
@@ -25,8 +31,11 @@ export const selectProblem = (state, id) => {
 };
 
 export const getProblems = state => {
-  const searchText = state.config.searchText;
-  const filterTags = state.config.tags;
+  const searchText = getSearchText(state);
+  const filterTags = getSelectedTags(state);
+  const matchCaseSensitive = getCaseSensitiveMatch(state);
+  const matchWholeWord = getWholeWordMatch(state);
+
   const problems = state.data.problems;
 
   var filteredProblems = {};
@@ -44,9 +53,23 @@ export const getProblems = state => {
     if (searchText !== "") {
       var inProblemStatement = false;
       var problemStatement = problem[attributes.statement];
-      if (problemStatement.toLowerCase().includes(searchText.toLowerCase())) {
+
+      if (
+        checkForMatch(
+          problemStatement,
+          searchText,
+          matchCaseSensitive,
+          matchWholeWord
+        )
+      ) {
         inProblemStatement = true;
-        problemStatement = addGlobalHighlightSpan(problemStatement, searchText);
+        problemStatement = addHighlightSpan(
+          problemStatement,
+          searchText,
+          true,
+          matchCaseSensitive,
+          matchWholeWord
+        );
 
         problem = {
           ...problem,
@@ -55,9 +78,17 @@ export const getProblems = state => {
       }
       var inSponsor = false;
       var sponsor = problem[attributes.sponsor];
-      if (sponsor.toLowerCase().includes(searchText.toLowerCase())) {
+      if (
+        checkForMatch(sponsor, searchText, matchCaseSensitive, matchWholeWord)
+      ) {
         inSponsor = true;
-        sponsor = addHighlightSpan(sponsor, searchText);
+        sponsor = addHighlightSpan(
+          sponsor,
+          searchText,
+          false,
+          matchCaseSensitive,
+          matchWholeWord
+        );
         problem = {
           ...problem,
           [attributes.sponsor]: sponsor
@@ -66,10 +97,18 @@ export const getProblems = state => {
 
       var inTag = false;
       highlightedTags = tags.map(tag => {
-        if (tag.toLowerCase().includes(searchText)) {
+        if (
+          checkForMatch(tag, searchText, matchCaseSensitive, matchWholeWord)
+        ) {
           inTag = true;
           if (!filterTags.includes(tag)) {
-            return addHighlightSpan(tag, searchText);
+            return addHighlightSpan(
+              tag,
+              searchText,
+              false,
+              matchCaseSensitive,
+              matchWholeWord
+            );
           }
         }
         return tag;
