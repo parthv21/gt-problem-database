@@ -21,6 +21,7 @@
   .selected-tag-container {
     padding-left: 30px;
     padding-right: 30px;
+    flex-wrap: wrap;
   }
   .remove-btn {
     font-size: 22px;
