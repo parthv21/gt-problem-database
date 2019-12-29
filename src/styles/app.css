@@ -1,7 +1,8 @@
 pre,
 span,
-input {
-  font-family: "Roboto";
+input,
+.tool-tip {
+  font-family: "Roboto", "Helvetica Neue";
 }
 
 .app-header {

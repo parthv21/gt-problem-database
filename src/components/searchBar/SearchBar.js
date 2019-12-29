@@ -54,11 +54,11 @@ class SearchBar extends Component {
           </div>
         </div>
 
-        <div className="reverse-flex-container">
-          <div
-            className="search-bar-btn-container"
-            onClick={() => toggleSortOrder()}
-          >
+        <div
+          className="search-bar-btn-container"
+          onClick={() => toggleSortOrder()}
+        >
+          <div data-tip="Toggle problem sort order">
             <FontAwesomeIcon
               icon={faCalendarAlt}
               className="sort-order-toggle-btn sort-order-calendar"
@@ -68,7 +68,8 @@ class SearchBar extends Component {
               className="sort-order-toggle-btn"
             />
           </div>
-
+        </div>
+        <div className="reverse-flex-container">
           <div
             className={
               wholeWordMatch
@@ -76,15 +77,16 @@ class SearchBar extends Component {
                 : "search-settings-btn"
             }
             onClick={() => toggleWholeWordMatch()}
-            data-tip="Toggle word match"
           >
-            <span
-              className="whole-word-match-toggle"
-              style={{ paddingRight: "4px" }}
-            >
-              Ab
-            </span>
-            <span style={{ marginLeft: "-9px", fontWeight: 100 }}>｜</span>
+            <div data-tip="Toggle word match">
+              <span
+                className="whole-word-match-toggle"
+                style={{ paddingRight: "4px" }}
+              >
+                Ab
+              </span>
+              <span style={{ marginLeft: "-9px", fontWeight: 100 }}>｜</span>
+            </div>
           </div>
 
           <div
@@ -94,9 +96,10 @@ class SearchBar extends Component {
                 : "padded-ssb search-settings-btn"
             }
             onClick={() => toggleCaseSensitiveMatch()}
-            data-tip="Toggle case sensitive match"
           >
-            <span>aA</span>
+            <div data-tip="Toggle case sensitive match">
+              <span>aA</span>
+            </div>
           </div>
 
           {searchText.length !== 0 ? (
@@ -121,7 +124,7 @@ class SearchBar extends Component {
           <FontAwesomeIcon icon={faSearch} className="search-icon" />
         </div>
 
-        <ReactTooltip effect="solid" />
+        <ReactTooltip effect="solid" className="tool-tip" />
       </div>
     );
   }
