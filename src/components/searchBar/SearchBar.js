@@ -43,7 +43,7 @@ class SearchBar extends Component {
       toggleWholeWordMatch
     } = this.props;
     return (
-      <div className="search-bar-container">
+      <div className="reverse-flex-container search-bar-container">
         <div className="project-name">
           <img src={logo} className="app-logo logo" alt="logo" />
           <img src={sheet} className="sheet-logo logo" alt="sheet" />
@@ -54,67 +54,73 @@ class SearchBar extends Component {
           </div>
         </div>
 
-        <div
-          className="search-bar-btn-container"
-          onClick={() => toggleSortOrder()}
-        >
-          <FontAwesomeIcon
-            icon={faCalendarAlt}
-            className="sort-order-toggle-btn sort-order-calendar"
-          />
-          <FontAwesomeIcon
-            icon={descendingSort ? faSortNumericDownAlt : faSortNumericDown}
-            className="sort-order-toggle-btn"
-          />
-        </div>
-
-        <div
-          className={
-            wholeWordMatch
-              ? "search-settings-btn selected-search-settings-btn"
-              : "search-settings-btn"
-          }
-          onClick={() => toggleWholeWordMatch()}
-          data-tip="Toggle word match"
-        >
-          <span
-            className="whole-word-match-toggle"
-            style={{ paddingRight: "5px" }}
+        <div className="reverse-flex-container">
+          <div
+            className="search-bar-btn-container"
+            onClick={() => toggleSortOrder()}
           >
-            Ab
-          </span>
-          <span style={{ marginLeft: "-12px", fontWeight: 100 }}>｜</span>
-        </div>
-
-        <div
-          className={
-            caseSensitiveMatch
-              ? "search-settings-btn selected-search-settings-btn"
-              : "search-settings-btn"
-          }
-          onClick={() => toggleCaseSensitiveMatch()}
-          data-tip="Toggle case sensitive match"
-        >
-          <span>aA</span>
-        </div>
-
-        {searchText.length !== 0 ? (
-          <div className="clear-search-btn-container">
-            <div className="clear-search-btn" onClick={() => clearSearchText()}>
-              <FontAwesomeIcon icon={faTrashAlt} />
-            </div>
+            <FontAwesomeIcon
+              icon={faCalendarAlt}
+              className="sort-order-toggle-btn sort-order-calendar"
+            />
+            <FontAwesomeIcon
+              icon={descendingSort ? faSortNumericDownAlt : faSortNumericDown}
+              className="sort-order-toggle-btn"
+            />
           </div>
-        ) : (
-          <div />
-        )}
-        <input
-          placeholder="Search problems..."
-          className="search-bar"
-          value={searchText}
-          type="text"
-          onChange={e => setSearchText(e.target.value)}
-        />
-        <FontAwesomeIcon icon={faSearch} className="search-icon" />
+
+          <div
+            className={
+              wholeWordMatch
+                ? "search-settings-btn selected-search-settings-btn"
+                : "search-settings-btn"
+            }
+            onClick={() => toggleWholeWordMatch()}
+            data-tip="Toggle word match"
+          >
+            <span
+              className="whole-word-match-toggle"
+              style={{ paddingRight: "4px" }}
+            >
+              Ab
+            </span>
+            <span style={{ marginLeft: "-9px", fontWeight: 100 }}>｜</span>
+          </div>
+
+          <div
+            className={
+              caseSensitiveMatch
+                ? "padded-ssb search-settings-btn selected-search-settings-btn"
+                : "padded-ssb search-settings-btn"
+            }
+            onClick={() => toggleCaseSensitiveMatch()}
+            data-tip="Toggle case sensitive match"
+          >
+            <span>aA</span>
+          </div>
+
+          {searchText.length !== 0 ? (
+            <div className="clear-search-btn-container">
+              <div
+                className="clear-search-btn"
+                onClick={() => clearSearchText()}
+              >
+                <FontAwesomeIcon icon={faTrashAlt} />
+              </div>
+            </div>
+          ) : (
+            <div />
+          )}
+          <input
+            placeholder="Search problems..."
+            className="search-bar"
+            value={searchText}
+            type="text"
+            onChange={e => setSearchText(e.target.value)}
+          />
+          <FontAwesomeIcon icon={faSearch} className="search-icon" />
+        </div>
+
         <ReactTooltip effect="solid" />
       </div>
     );

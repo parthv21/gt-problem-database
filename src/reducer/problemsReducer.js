@@ -47,8 +47,8 @@ export const getProblems = state => {
   for (const key of keys) {
     var problem = problems[key];
     var keep = true;
-    const tags = problem[attributes.tags].split(",");
-    var highlightedTags;
+    var tags = problem[attributes.tags].split(",");
+    // var highlightedTags = tags;
 
     if (searchText !== "") {
       var inProblemStatement = false;
@@ -96,7 +96,7 @@ export const getProblems = state => {
       }
 
       var inTag = false;
-      highlightedTags = tags.map(tag => {
+      tags = tags.map(tag => {
         if (
           checkForMatch(tag, searchText, matchCaseSensitive, matchWholeWord)
         ) {
@@ -129,7 +129,7 @@ export const getProblems = state => {
     if (keep) {
       problem = {
         ...problem,
-        [attributes.tags]: highlightedTags.join(",")
+        [attributes.tags]: tags.join(",")
       };
       filteredProblems[problem["uid"]] = problem;
     }
