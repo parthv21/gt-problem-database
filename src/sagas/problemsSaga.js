@@ -2,7 +2,7 @@ import { put, takeEvery, call } from "redux-saga/effects";
 import ProblemTypes from "../types/problemsTypes";
 import Tabletop from "tabletop";
 import { setProblems } from "../actions/problemsAction";
-import attributes from "../constants/attributes";
+import attributes, { publishedStates } from "../constants/attributes";
 
 function fetchProblemsPromise(key) {
   return new Promise(resolve => {
@@ -21,7 +21,10 @@ function* fetchProblems(action) {
   var problems = {};
 
   for (var i = 0; i < data.length; i++) {
-    problems[data[i][attributes.uid]] = data[i];
+    const problem = data[i];
+    if (problem[attributes.published] === publishedStates.published) {
+      problems[problem[attributes.uid]] = problem;
+    }
   }
 
   yield put(setProblems(problems));

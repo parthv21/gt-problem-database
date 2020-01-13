@@ -8,7 +8,13 @@ const problemAttributes = {
   tags: "Tags",
   description: "Problem Description",
   history: "Implementation History",
-  uid: "uid"
+  uid: "uid",
+  published: "published"
+};
+
+export const publishedStates = {
+  published: "Yes",
+  unpublished: "No"
 };
 
 export default problemAttributes;
