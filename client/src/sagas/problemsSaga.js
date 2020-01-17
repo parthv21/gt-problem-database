@@ -1,23 +1,14 @@
 import { put, takeEvery, call } from "redux-saga/effects";
 import ProblemTypes from "../types/problemsTypes";
-import Tabletop from "tabletop";
 import { setProblems } from "../actions/problemsAction";
 import attributes, { publishedStates } from "../constants/attributes";
 
-function fetchProblemsPromise(key) {
-  return new Promise(resolve => {
-    Tabletop.init({
-      key: key,
-      callback: sheet => {
-        resolve(sheet);
-      },
-      simpleSheet: true
-    });
-  });
-}
-
-function* fetchProblems(action) {
-  const data = yield call(fetchProblemsPromise, [action.key]);
+function* fetchProblems() {
+  const data = yield call(() =>
+    fetch("/api/getProblems")
+      .then(response => response.json())
+      .then(sheet => sheet)
+  );
   var problems = {};
 
   for (var i = 0; i < data.length; i++) {

@@ -13,7 +13,7 @@ import App from "./components/App";
 import ProblemDetails from "./components/problem/ProblemDetails";
 import registerServiceWorker from "./registerServiceWorker";
 
-store.dispatch(fetchProblems("1YJHZdoPdEIUE46BSdAGz8BCE10-VMasHI3y4dT3CXp0"));
+store.dispatch(fetchProblems());
 
 const Routing = (
   <Provider store={store}>

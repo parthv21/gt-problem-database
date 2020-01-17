@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
     "url": "https://github.com/parthv21/gt-problem-database/issues"
   },
   "dependencies": {
-    "express": "4.17.1"
+    "express": "4.17.1",
+    "tabletop": "1.6.2"
   },
   "homepage": "https://github.com/parthv21/gt-problem-database#readme"
 }

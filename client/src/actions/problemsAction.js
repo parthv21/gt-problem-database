@@ -1,8 +1,7 @@
 import ProblemTypes from "../types/problemsTypes";
 
-const fetchProblems = key => ({
-  type: ProblemTypes.FETCH_PROBLEMS,
-  key
+const fetchProblems = () => ({
+  type: ProblemTypes.FETCH_PROBLEMS
 });
 
 const setProblems = problems => ({
