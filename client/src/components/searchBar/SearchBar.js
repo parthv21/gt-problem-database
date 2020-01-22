@@ -44,13 +44,16 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <div className="reverse-flex-container search-bar-container">
-        <div className="project-name">
-          <img src={logo} className="app-logo logo" alt="logo" />
-          <img src={sheet} className="sheet-logo logo" alt="sheet" />
+        <div
+          className="project-name"
+          onClick={() =>
+            window.open(
+              "https://docs.google.com/forms/d/e/1FAIpQLSeRhKmiRC-Gzfg277BNJN9yoio2NulqzxTXgNU0kU2uJeUmBA/viewform"
+            )
+          }
+        >
           <div>
-            <span className="tag-line">
-              Problem Database <br /> React + Sheets
-            </span>
+            <span className="tag-line">Submit an Idea</span>
           </div>
         </div>
 
