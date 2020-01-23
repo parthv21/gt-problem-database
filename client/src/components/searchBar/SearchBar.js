@@ -7,8 +7,11 @@ import {
   faSearch,
   faSortNumericDown,
   faSortNumericDownAlt,
-  faCalendarAlt
+  faCalendarAlt,
+  faLightbulb
 } from "@fortawesome/free-solid-svg-icons";
+
+import { getProblemsCount } from "../../reducer/problemsReducer";
 
 import {
   getSearchText,
@@ -24,9 +27,6 @@ import {
   toggleWholeWordMatch
 } from "../../actions/configActions";
 
-import logo from "../../assets/logo.svg";
-import sheet from "../../assets/sheets.png";
-
 import "../../styles/searchBar.css";
 
 class SearchBar extends Component {
@@ -36,6 +36,7 @@ class SearchBar extends Component {
       descendingSort,
       caseSensitiveMatch,
       wholeWordMatch,
+      problemsCount,
       setSearchText,
       clearSearchText,
       toggleSortOrder,
@@ -53,10 +54,13 @@ class SearchBar extends Component {
           }
         >
           <div>
+            <FontAwesomeIcon icon={faLightbulb} className="ideas-btn-icon" />
             <span className="tag-line">Submit an Idea</span>
           </div>
         </div>
-
+        <div className="search-bar-text">
+          {problemsCount} {problemsCount > 1 ? "problems" : "problem"}
+        </div>
         <div
           className="search-bar-btn-container"
           onClick={() => toggleSortOrder()}
@@ -137,7 +141,8 @@ const mapStateToProp = state => ({
   searchText: getSearchText(state),
   descendingSort: getDescendingSort(state),
   caseSensitiveMatch: getCaseSensitiveMatch(state),
-  wholeWordMatch: getWholeWordMatch(state)
+  wholeWordMatch: getWholeWordMatch(state),
+  problemsCount: getProblemsCount(state)
 });
 
 const mapDispatchToProp = dispatch => ({

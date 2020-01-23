@@ -30,6 +30,10 @@ export const selectProblem = (state, id) => {
   return state.data.problems[id];
 };
 
+export const getProblemsCount = state => {
+  return Object.keys(state.data.problems).length;
+};
+
 export const getProblems = state => {
   const searchText = getSearchText(state);
   const filterTags = getSelectedTags(state);
@@ -114,7 +118,43 @@ export const getProblems = state => {
         return tag;
       });
 
-      if (!inProblemStatement && !inSponsor && !inTag) {
+      const inDescription = checkForMatch(
+        problem[attributes.description],
+        searchText,
+        false,
+        false
+      );
+
+      const inHistory = checkForMatch(
+        problem[attributes.history],
+        searchText,
+        false,
+        false
+      );
+
+      const inProblemDomain = checkForMatch(
+        problem[attributes.domain],
+        searchText,
+        false,
+        false
+      );
+
+      const inStakeHolders = checkForMatch(
+        problem[attributes.stakeholders],
+        searchText,
+        false,
+        false
+      );
+
+      if (
+        !inProblemStatement &&
+        !inSponsor &&
+        !inTag &&
+        !inDescription &&
+        !inHistory &&
+        !inProblemDomain &&
+        !inStakeHolders
+      ) {
         keep = false;
       }
     }

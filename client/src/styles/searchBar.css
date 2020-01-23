@@ -1,3 +1,10 @@
+.search-bar-text {
+  margin-left: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 14;
+}
+
 .reverse-flex-container {
   display: flex;
   flex-direction: row-reverse;
@@ -6,6 +13,7 @@
   justify-content: flex-end;
   align-items: center;
 }
+
 .search-bar-container {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -116,6 +124,12 @@
   color: white;
   font-weight: bold;
   margin-right: 10px;
+}
+
+.ideas-btn-icon {
+  font-size: 13;
+  font-weight: bold;
+  color: white;
 }
 
 .tag-line {

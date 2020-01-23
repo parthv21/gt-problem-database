@@ -23,6 +23,7 @@ const ProblemPreview = ({ problem }) => {
           date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear()
         }
       />
+      <MetaInformation title="ID" info={id} />
       <TagContainer tags={tags} clickable />
     </div>
   );

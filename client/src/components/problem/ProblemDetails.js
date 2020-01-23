@@ -24,6 +24,7 @@ class ProblemDetails extends Component {
     const tags = problem[attributes.tags].split(",");
     const implementationHistory = problem[attributes.history];
     const date = new Date(problem[attributes.timestamp]);
+    const id = problem[attributes.uid];
 
     return (
       <div className="problem-details">
@@ -41,6 +42,7 @@ class ProblemDetails extends Component {
               date.getFullYear()
             }
           />
+          <MetaInformation title="ID" info={id} />
           <TagContainer tags={tags} />
         </div>
 
